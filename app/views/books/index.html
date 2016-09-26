@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Books Home</title>
+		<meta charset="utf-8">
+		<meta name="discription" content="Book Reviews Demo Webpage for Practice.">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/static/css/books/index.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand">Welcome, {{ session["alias"] }}</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/books/add">Add Book</a></li>
+						<li><a href="/users/logout">Logout</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="well col-sm-7">
+				<h1>Recent Book Reviews</h1>
+				{% for review in all_reviews %}
+				<div class="panel panel-info">
+					<div class="panel-heading"><a href="/books/{{review['book_id']}}">{{review['title']}}</a></div>
+					<div class="panel-body">
+						<p>Rating: {{review['rating']}}</p>
+						<p><a href="/users/{{review['user_id']}}">{{review['alias']}}</a> says: {{review['content']}}</p>
+						<p>Posted on {{review['create_at'].strftime("%B %d %y")}}</p>
+					</div>
+				</div>
+				{% endfor %}
+			</div>
+			<div class="well col-sm-5">
+				<h1>Other Books with Reviews</h1>
+				<div style="height: 300px;">
+					{% for book in all_books_with_reviews %}
+						<a href="/books/{{book['id']}}" style="display: block; font-size: 22px;">{{book["title"]}}</a>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome</title>
+		<meta charset="utf-8">
+		<meta name="discription" content="Book Reviews Demo Webpage for Practice.">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/blitzer/jquery-ui.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="/static/css/users/index.css">
+
+		<script type="text/javascript">
+			$( function() {
+				$( "#datepicker" ).datepicker();
+			} );
+		</script>
+	</head>
+	<body>
+		<div id="wrapper">
+			<h1>Welcome!</h1>
+			<div class="well">
+				<h1>New User Register</h1>
+				<form class="form-horizontal" action="/users/create" method="post">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="first_name">First Name:</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="first_name" placeholder="Enter First Name">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["first_name"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="last_name">Last Name:</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="last_name" placeholder="Enter Last Name">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["last_name"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="alias">Alias:</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="alias" placeholder="Enter Alias">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["alias"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="date_of_birth">Date of Birth:</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="date_of_birth" placeholder="Enter Birth Date" id="datepicker">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["date_of_birth"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email">Your Email:</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="email" placeholder="Enter Email">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["email"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="password">Password:</label>
+						<div class="col-sm-4">
+							<input type="password" class="form-control" name="password1" placeholder="Enter Password">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["password1"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="password">Confirm Password:</label>
+						<div class="col-sm-4">
+							<input type="password" class="form-control" name="password2" placeholder="Comfirm Password">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["password2"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-6">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="well">
+				<h1>User Login</h1>
+				<form class="form-horizontal" action="/users/login" method="post">
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="email">Your Email:</label>
+						<div class="col-sm-4">
+							<input type="text" class="form-control" name="email" placeholder="Enter Email">
+						</div>
+						{% with errors = get_flashed_messages(category_filter=["login"]) %}
+							{% if errors %}
+							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							{% endif %}
+						{% endwith %}
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="password">Password:</label>
+						<div class="col-sm-4">
+							<input type="password" class="form-control" name="password" placeholder="Enter Password">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

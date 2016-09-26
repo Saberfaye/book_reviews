@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Book and Review</title>
+		<meta charset="utf-8">
+		<meta name="discription" content="Book Reviews Demo Webpage for Practice.">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="/static/css/books/show.css">
+	</head>
+	<body>
+		<div id="wrapper">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand">Book and Reviews</a>
+					</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/books">Home</a></li>
+						<li><a href="/books/add">Add Book</a></li>
+						<li><a href="/users/logout">Logout</a></li>
+					</ul>
+				</div>
+			</nav>
+			<div class="well col-sm-7">
+				<h1>{{ book["title"] }}</h1>
+				<h2>Author: {{ book["author"] }}</h2>
+				<h1>Reviews:</h1>
+				{% for review in all_reviews %}
+					<hr style="border-top: 1px solid black;">
+					<p>Rating: {{review['rating']}}</p>
+					<p><a href="/users/{{review['user_id']}}">{{review['alias']}}</a> says: {{review['content']}}</p>
+					<p style="display: inline-block;">Posted on {{review['create_at'].strftime("%B %d %y")}}</p>
+					{% if session["id"] == review['user_id'] %}
+					<a style="display: inline-block;" href="/reviews/delete/{{review['id']}}" class="btn btn-danger pull-right">Delete</a>
+					{% endif %}
+				{% endfor %}
+			</div>
+			<div class="well col-sm-5">
+				<form action="/reviews/create" method="post">
+					<input type="hidden" name="book_id" value="{{ book['id'] }}">
+					<div class="form-group">
+						<label for="review">Add a Review:</label>
+						<textarea class="form-control" rows="5" name="content" placeholder="Enter Review"></textarea>
+					</div>
+					<div class="form-group">
+						<label for="rating">Rating:</label>
+						<input type="number" name="rating" min="1" max="5" value="3">
+					</div>
+					<button type="submit" class="btn btn-default pull-right">Submit Review</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
