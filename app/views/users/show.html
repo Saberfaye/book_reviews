@@ -12,7 +12,7 @@
 		<link rel="stylesheet" type="text/css" href="/static/css/users/show.css">
 	</head>
 	<body>
-		<div id="wrapper">
+		<div id="wrapper" class="container">
 			<nav class="navbar navbar-inverse">
 				<div class="container-fluid">
 					<div class="navbar-header">
@@ -25,7 +25,7 @@
 					</ul>
 				</div>
 			</nav>
-			<div class="well">
+			<div class="well col-sm-8">
 				<table class="table table-bordered">
 					<tbody>
 						<tr>
@@ -47,7 +47,7 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="well">
+			<div class="well col-sm-8">
 				<h3>Posted Reviews on the Following Books:</h3>
 				<ul class="list-group">
 					{% for book in all_books %}

@@ -29,18 +29,18 @@
 				<form class="form-horizontal" action="/books/create" method="post">
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="title">Book Title:</label>
-						<div class="col-sm-4">
+						<div class="col-sm-6">
 							<input type="text" class="form-control" name="title" placeholder="Enter Book Title">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["book"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="author">Author:</label>
-						<div class="col-sm-4">
+						<div class="col-sm-6">
 							<label class="control-label col-sm-4" for="choose">Choose from the list:</label>
 							<div class="col-sm-8">
 								<select class="form-control" name="author1">
@@ -57,19 +57,19 @@
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="review">Review:</label>
-						<div class="col-sm-4">
+						<div class="col-sm-6">
 							<textarea class="form-control" rows="5" name="content" placeholder="Enter Review"></textarea>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-2" for="rating">Rating:</label>
-						<div class="col-sm-4">
+						<div class="col-sm-6">
 							<input type="number" name="rating" min="1" max="5" value="3">
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">Submit</button>
+						<div class="col-sm-offset-2 col-sm-6">
+							<button type="submit" class="btn btn-default pull-right">Submit</button>
 						</div>
 					</div>
 				</form>

@@ -24,7 +24,7 @@
 					</ul>
 				</div>
 			</nav>
-			<div class="well col-sm-7">
+			<div class="well" id="well1">
 				<h1>Recent Book Reviews</h1>
 				{% for review in all_reviews %}
 				<div class="panel panel-info">
@@ -37,12 +37,14 @@
 				</div>
 				{% endfor %}
 			</div>
-			<div class="well col-sm-5">
+			<div class="well" id="well2">
 				<h1>Other Books with Reviews</h1>
-				<div style="height: 300px;">
+				<div id="books">
+					<ul class="list-group">
 					{% for book in all_books_with_reviews %}
-						<a href="/books/{{book['id']}}" style="display: block; font-size: 22px;">{{book["title"]}}</a>
+						<li class="list-group-item"><a href="/books/{{book['id']}}" style="display: block; font-size: 22px;">{{book["title"]}}</a></li>
 					{% endfor %}
+					</ul>
 				</div>
 			</div>
 		</div>

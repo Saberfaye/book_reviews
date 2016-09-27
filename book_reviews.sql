@@ -29,7 +29,7 @@ CREATE TABLE `books` (
   `title` varchar(255) DEFAULT NULL,
   `author` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,7 +38,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,'Python Intro','Lun Li'),(2,'Python Advanced','Lun Li'),(3,'Harry Potter','J.K.Rowling'),(4,'Hands on Javacript','Carmen Chung');
+INSERT INTO `books` VALUES (1,'Python Intro','Lun Li'),(2,'Python Advanced','Lun Li'),(3,'Harry Potter','J.K.Rowling'),(4,'Hands on Javacript','Carmen Chung'),(5,'Book1','Author1'),(6,'Book2','Author2');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -61,7 +61,7 @@ CREATE TABLE `reviews` (
   KEY `fk_reviews_books1_idx` (`book_id`),
   CONSTRAINT `fk_reviews_books1` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_reviews_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,7 +70,7 @@ CREATE TABLE `reviews` (
 
 LOCK TABLES `reviews` WRITE;
 /*!40000 ALTER TABLE `reviews` DISABLE KEYS */;
-INSERT INTO `reviews` VALUES (1,'Good Book!',5,'2016-09-25',1,2),(2,'Proud of it!',5,'2016-09-25',1,1),(3,'Awesome book!',5,'2016-09-25',2,3),(8,'sdf sf sf',3,'2016-09-25',1,3),(9,'sdfs fsd f',3,'2016-09-25',1,3),(10,'rt r rg g',3,'2016-09-25',2,3),(11,'Just waste of time reading it!',1,'2016-09-25',2,4),(12,'srt swg wsg ',3,'2016-09-25',2,3);
+INSERT INTO `reviews` VALUES (1,'Good Book!',5,'2016-09-25',1,2),(2,'Proud of it!',5,'2016-09-25',1,1),(3,'Awesome book!',5,'2016-09-25',2,3),(8,'sdf sf sf',3,'2016-09-25',1,3),(9,'sdfs fsd f',3,'2016-09-25',1,3),(10,'rt r rg g',3,'2016-09-25',2,3),(11,'Just waste of time reading it!',1,'2016-09-25',2,4),(12,'srt swg wsg ',3,'2016-09-25',2,3),(13,'Just so so...',3,'2016-09-26',1,5),(14,'Normal...',3,'2016-09-26',1,6);
 /*!40000 ALTER TABLE `reviews` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,4 +112,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-25 23:57:08
+-- Dump completed on 2016-09-26 23:54:24

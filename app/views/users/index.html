@@ -23,118 +23,118 @@
 		</script>
 	</head>
 	<body>
-		<div id="wrapper">
+		<div id="wrapper" class="container">
 			<h1>Welcome!</h1>
-			<div class="well">
+			<div class="well col-sm-7">
 				<h1>New User Register</h1>
 				<form class="form-horizontal" action="/users/create" method="post">
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="first_name">First Name:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="first_name">First Name:</label>
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="first_name" placeholder="Enter First Name">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["first_name"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="last_name">Last Name:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="last_name">Last Name:</label>
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="last_name" placeholder="Enter Last Name">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["last_name"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="alias">Alias:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="alias">Alias:</label>
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="alias" placeholder="Enter Alias">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["alias"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="date_of_birth">Date of Birth:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="date_of_birth">Date of Birth:</label>
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="date_of_birth" placeholder="Enter Birth Date" id="datepicker">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["date_of_birth"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="email">Your Email:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="email">Your Email:</label>
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="email" placeholder="Enter Email">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["email"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="password">Password:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="password">Password:</label>
+						<div class="col-sm-5">
 							<input type="password" class="form-control" name="password1" placeholder="Enter Password">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["password1"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="password">Confirm Password:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="password">Confirm Password:</label>
+						<div class="col-sm-5">
 							<input type="password" class="form-control" name="password2" placeholder="Comfirm Password">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["password2"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-6">
-							<button type="submit" class="btn btn-default">Submit</button>
+						<div class="col-sm-offset-3 col-sm-5">
+							<button type="submit" class="btn btn-default pull-right">Submit</button>
 						</div>
 					</div>
 				</form>
 			</div>
-			<div class="well">
+			<div class="well col-sm-4 col-sm-offset-1">
 				<h1>User Login</h1>
 				<form class="form-horizontal" action="/users/login" method="post">
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="email">Your Email:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="email">Your Email:</label>
+						<div class="col-sm-5">
 							<input type="text" class="form-control" name="email" placeholder="Enter Email">
 						</div>
 						{% with errors = get_flashed_messages(category_filter=["login"]) %}
 							{% if errors %}
-							<span class="col-sm-6 error">{{ errors[0] }}</span>
+							<span class="col-sm-4 error">{{ errors[0] }}</span>
 							{% endif %}
 						{% endwith %}
 					</div>
 					<div class="form-group">
-						<label class="control-label col-sm-2" for="password">Password:</label>
-						<div class="col-sm-4">
+						<label class="control-label col-sm-3" for="password">Password:</label>
+						<div class="col-sm-5">
 							<input type="password" class="form-control" name="password" placeholder="Enter Password">
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">Submit</button>
+						<div class="col-sm-offset-3 col-sm-5">
+							<button type="submit" class="btn btn-default pull-right">Submit</button>
 						</div>
 					</div>
 				</form>
